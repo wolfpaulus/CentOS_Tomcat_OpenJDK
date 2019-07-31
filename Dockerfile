@@ -3,11 +3,11 @@
 FROM centos:centos7
 MAINTAINER Wolf Paulus <wolf@paulus.com>
 
-ARG OPEN_JDK=11.0.1
+ARG OPEN_JDK=11.0.2
 ARG OPENSSL_VERSION=1.0.2p
 ARG TOMCAT_MAJOR=9
-ARG TOMCAT_MINOR=9.0.13
-ARG TOMCAT_NATIVE=1.2.17
+ARG TOMCAT_MINOR=9.0.22
+ARG TOMCAT_NATIVE=1.2.23
 
 # Install prepare infrastructure
 RUN yum -y update && \

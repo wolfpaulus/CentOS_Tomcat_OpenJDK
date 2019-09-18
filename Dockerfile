@@ -3,11 +3,11 @@
 FROM centos:centos7
 MAINTAINER Wolf Paulus <wolf@paulus.com>
 
-ARG OPEN_JDK=11.0.1
-ARG OPENSSL_VERSION=1.0.2p
+ARG OPEN_JDK=11.0.2
+ARG OPENSSL_VERSION=1.0.2
 ARG TOMCAT_MAJOR=9
-ARG TOMCAT_MINOR=9.0.13
-ARG TOMCAT_NATIVE=1.2.17
+ARG TOMCAT_MINOR=9.0.16
+ARG TOMCAT_NATIVE=1.2.21
 
 # Install prepare infrastructure
 RUN yum -y update && \
@@ -22,10 +22,10 @@ RUN yum -y update && \
 
 # Install OpenJDK 11
 ENV OPEN_JDK ${OPEN_JDK}
-RUN curl -O https://download.java.net/java/GA/jdk11/13/GPL/openjdk-${OPEN_JDK}_linux-x64_bin.tar.gz && \
+RUN curl -O https://download.java.net/java/GA/jdk11/9/GPL/openjdk-${OPEN_JDK}_linux-x64_bin.tar.gz && \
     tar zxvf openjdk-${OPEN_JDK}_linux-x64_bin.tar.gz && \
     rm openjdk-${OPEN_JDK}_linux-x64_bin.tar.gz && \
-    mv jdk-11.0.1 /usr/local
+    mv jdk-${OPEN_JDK} /usr/local
 ENV JAVA_HOME /usr/local/jdk-${OPEN_JDK}
 ENV JRE_HOME /usr/local/jdk-${OPEN_JDK}
 
@@ -33,7 +33,7 @@ ENV JRE_HOME /usr/local/jdk-${OPEN_JDK}
 ENV OPENSSL_VERSION ${OPENSSL_VERSION}
 RUN curl -#L https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz -o /tmp/openssl.tar.gz
 WORKDIR /tmp
-RUN tar zxf openssl.tar.gz && \
+RUN tar zxvf openssl.tar.gz && \
     rm openssl.tar.gz && \
     mv openssl-* openssl && \
     cd openssl && \
@@ -52,14 +52,14 @@ ENV CATALINA_HOME /opt/tomcat
 
 WORKDIR /opt/tomcat
 RUN curl -#L ${TOMCAT_LINK} -o /tmp/apache-tomcat.tar.gz
-RUN tar -zxf /tmp/apache-tomcat.tar.gz -C /opt && \
+RUN tar zxvf /tmp/apache-tomcat.tar.gz -C /opt && \
     rm /tmp/apache-tomcat.tar.gz && \
     mv /opt/apache-tomcat-${TOMCAT_MINOR}/* /opt/tomcat
 
 # Build and Install the native connector
 RUN curl -#L ${TOMCAT_NATIVE_LINK} -o /tmp/tomcat-native.tar.gz
 RUN mkdir -p /opt/tomcat-native && \
-    tar -zxf /tmp/tomcat-native.tar.gz -C /opt/tomcat-native --strip-components=1 && \
+    tar zxvf /tmp/tomcat-native.tar.gz -C /opt/tomcat-native --strip-components=1 && \
     rm /tmp/*tar.gz && \
     cd /opt/tomcat-native/native && \
     ./configure \

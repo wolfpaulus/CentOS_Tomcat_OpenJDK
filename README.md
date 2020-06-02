@@ -1,5 +1,5 @@
 # CentOS_Tomcat_OpenJDK
-A container w Centos 7, OpenJDK 11.x, OpenSSL 1.x and Tomcat 9.x / Tomcat Native Library
+A container w Centos 8, OpenJDK 11.0.7, OpenSSL 1.1.1 and Tomcat 9.0.35 / Tomcat Native Library 1.2.24
 
 #### Get the image from dockerhub
 Get this container with:

@@ -1,15 +1,14 @@
-# Centos 7 with OpenJDK 11.x and OpenSSL 1.x and Tomcat 9.x / Tomcat Native Library
+# CentOS Linux 8 (Core) with OpenJDK 11.0.7 and OpenSSL 1.1.1 and Tomcat 9.0.35 w/ Tomcat Native Library
 
-FROM centos:centos7
+FROM centos:centos8
 MAINTAINER Wolf Paulus <wolf@paulus.com>
 
-ARG OPENSSL_VERSION=1.0.2
+ARG OPENSSL_VERSION=1.1.1
 ARG TOMCAT_MAJOR=9
-ARG TOMCAT_MINOR=9.0.24
-ARG TOMCAT_NATIVE=1.2.23
+ARG TOMCAT_MINOR=9.0.35
+ARG TOMCAT_NATIVE=1.2.24
 ARG JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot/
-ARG DOWNLOAD=https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.4%2B11/OpenJDK11U-jdk_x64_linux_hotspot_11.0.4_11.tar.gz
-
+ARG DOWNLOAD=https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk11u-2019-01-11-01-22/OpenJDK11U-jdk_x64_linux_hotspot_2019-01-11-01-22.tar.gz
 # Install prepare infrastructure
 RUN yum -y update && \
  yum -y upgrade && \
@@ -79,7 +78,7 @@ RUN set -e \
             exit 1 \
 	fi
 
-RUN yum remove -y apr-devel kernel-devel kernel-headers boost* rsync perl* && \
+RUN yum remove -y kernel-devel kernel-headers boost* rsync perl* && \
  yum groupremove -y "Development Tools" && \
  yum clean all
 

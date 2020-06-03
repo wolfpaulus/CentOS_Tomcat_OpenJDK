@@ -1,6 +1,6 @@
-# CentOS Linux 8 (Core) with OpenJDK 11.0.7 and OpenSSL 1.1.1 and Tomcat 9.0.35 w/ Tomcat Native Library
+# CentOS Linux 7 (Core) with OpenJDK 11.0.7 and OpenSSL 1.1.1 and Tomcat 9.0.35 w/ Tomcat Native Library
 
-FROM centos:centos8
+FROM centos:centos7
 MAINTAINER Wolf Paulus <wolf@paulus.com>
 
 ARG OPENSSL_VERSION=1.1.1

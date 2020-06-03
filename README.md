@@ -19,3 +19,12 @@ docker push techcasita/centos_tomcat_openjdk:latest
 docker run --rm -it --name tc -p 8080:8080 centos_tomcat_openjdk:latest
 Open a web browser at http://localhost:8080/
 docker exec -it tc /bin/bash
+
+E.g.:
+```
+docker exec -it tc /bin/bash
+[root@f6d3f3058f17 tomcat]# java -version
+openjdk version "11.0.7" 2020-04-14
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.7+10)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.7+10, mixed mode)
+```

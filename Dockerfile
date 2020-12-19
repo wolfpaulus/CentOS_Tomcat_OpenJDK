@@ -1,12 +1,12 @@
-# CentOS Linux 8 (Core) with OpenJDK 11.0.7 and OpenSSL 1.1.1 and Tomcat 9.0.35 w/ Tomcat Native Library
+# CentOS Linux 8 (Core) with OpenJDK 11.x and OpenSSL 1.1.1 and Tomcat 9.0.41 w/ Tomcat Native Library
 
 FROM centos:centos8
 MAINTAINER Wolf Paulus <wolf@paulus.com>
 
-ARG OPENSSL_VERSION=1.1.1
+ARG OPENSSL_VERSION=1.1.1i
 ARG TOMCAT_MAJOR=9
-ARG TOMCAT_MINOR=9.0.36
-ARG TOMCAT_NATIVE=1.2.24
+ARG TOMCAT_MINOR=9.0.41
+ARG TOMCAT_NATIVE=1.2.25
 ARG JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot/
 
 # Install prepare infrastructure

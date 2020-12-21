@@ -24,7 +24,10 @@ E.g.:
 ```
 docker exec -it tc /bin/bash
 [root@f6d3f3058f17 tomcat]# java -version
-openjdk version "11.0.7" 2020-04-14
-OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.7+10)
-OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.7+10, mixed mode)
+openjdk version "11.0.9.1" 2020-11-04
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.9.1+1)
+OpenJDK 64-Bit Server VM AdoptOpenJDK (build 11.0.9.1+1, mixed mode)
 ```
+
+![alt text](./instructions/gui.jpg "Tomcat Web UI")
+
